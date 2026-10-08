@@ -2,7 +2,7 @@ const params = new URLSearchParams(window.location.search);
 const query = params.get('mid');
 
 async function getBase64Midi() {
-    const url = 'https://composer-music-python-services.vercel.app/admin/music/list/uuid/' + query;
+    const url = window.APP_CONFIG.API_URL + '/admin/music/list/uuid/' + query;
     const responseApi = await fetch(url);
     const data = await responseApi.json();
     return data.data[0].midi_data
